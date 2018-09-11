@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>Test6</display-name>
+
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>filter.LoginFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/index</url-pattern>
+		<url-pattern>/department</url-pattern>
+		<url-pattern>/employee</url-pattern>
+		<url-pattern>/project</url-pattern>
+		<url-pattern>/score</url-pattern>
+		<url-pattern>/deppro</url-pattern>
+
+	</filter-mapping>
+
+
+	<servlet>
+		<servlet-name>ScoreServlet</servlet-name>
+		<servlet-class>servlet.ScoreServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ScoreServlet</servlet-name>
+		<url-pattern>/score</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+	<servlet>
+		<servlet-name>DepProServlet</servlet-name>
+		<servlet-class>servlet.DepProServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DepProServlet</servlet-name>
+		<url-pattern>/deppro</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>ProjectServlet</servlet-name>
+		<servlet-class>servlet.ProjectServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProjectServlet</servlet-name>
+		<url-pattern>/project</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>DepartmentServlet</servlet-name>
+		<servlet-class>servlet.DepartmentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DepartmentServlet</servlet-name>
+		<url-pattern>/department</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>IndexServlet</servlet-name>
+		<servlet-class>servlet.IndexServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IndexServlet</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>servlet.UserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/user</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>EmployeeServlet</servlet-name>
+		<servlet-class>servlet.EmployeeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmployeeServlet</servlet-name>
+		<url-pattern>/employee</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>EmployeeServlet</servlet-name>
+		<url-pattern>/add</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeServlet</servlet-name>
+		<url-pattern>/del</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeServlet</servlet-name>
+		<url-pattern>/update</url-pattern>
+	</servlet-mapping>
+	
+	<listener>
+		<listener-class>listener.CountListener</listener-class>
+	</listener>
+
+	<welcome-file-list>
+
+		<welcome-file>index.jsp</welcome-file>
+
+	</welcome-file-list>
+</web-app>
