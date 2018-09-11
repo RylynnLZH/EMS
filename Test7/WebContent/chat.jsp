@@ -17,7 +17,7 @@
 <body>
 	欢迎来到聊天室
 	<br />
-<div>123</div>
+
 	<div id="mes"></div>
 	<input id="text" type="text" />
 	<button onclick="send()">发送消息</button>
