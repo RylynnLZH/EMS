@@ -30,7 +30,7 @@ public class CountSocket {
 	
 	
 	public static void sendMessageAll(String message) {
-		System.out.println("size"+set.size());
+		
 		for(CountSocket item:set) {
 			item.sendMessage(message);
 			
