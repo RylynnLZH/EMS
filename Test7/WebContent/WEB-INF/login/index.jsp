@@ -44,8 +44,14 @@ p{
 	float:left;
 }
 
-#online,#count{
+#online,#count {
 float:left;
+margin: 0;
+}
+#online{
+width: 20px;
+height: 20px;
+
 }
 </style>
 
@@ -54,7 +60,8 @@ var websocket = null;
 
 //判断当前浏览器是否支持WebSocket
 if ('WebSocket' in window) {
-	websocket = new WebSocket("ws://192.168.0.168:8080/a/CountSocket");
+	
+	websocket = new WebSocket("ws://192.168.0.168:8080/Test7/websocket");
 } else {
 	alert('没有建立websocket连接')
 }
@@ -64,30 +71,24 @@ window.onbeforeunload = function() {
 	websocket.close();
 }
 
+//连接成功建立的回调方法
+websocket.onopen = function(event) {
+	
+}
+
 //接收到消息的回调方法
 websocket.onmessage = function(event) {
-	setMessage(event.data);
+	$("#online").html(event.data);
+	
 }
 
 
-//将消息显示在网页上
-function setMessage(text) {
-	$("#online").html(text)
-}
 
 //关闭连接
 function closeWebSocket() {
 	websocket.close();
 }
 
-
-
-$(document).ready(function(){  
-	//发送消息
-		var message = <%=application.getAttribute("online") %>;
-		websocket.send(message);
-	
-});  
 
 </script>
 <title>管理系统</title>
@@ -104,15 +105,16 @@ $(document).ready(function(){
 			</div>
 			
 			<div id="count">
-				历史访问人数：<%=application.getAttribute("count") %>
+				历史访问人数：${applicationScope.count}
 			</div>
+			<p>当前访问人数：</p>
 			<div id="online">
-				当前访问人数：
+				${applicationScope.online}
 			</div>
 			
 			<div id="username">
 				<p>${sessionScope.username}</p>
-				<a href="index?type=exit">退出</a> 
+				<!--  <a href="index?type=exit">退出</a>-->
 			</div>
 			
 			

@@ -45,14 +45,14 @@ public class UserServlet extends HttpServlet {
 	private void rename(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			PrintWriter out = response.getWriter();
-		
-		String username = request.getParameter("username");
-		
-		UserDao userDao = new UserDao();
-		boolean flag = userDao.search(username);
-		
-		out.print(flag);
-		
+
+			String username = request.getParameter("username");
+
+			UserDao userDao = new UserDao();
+			boolean flag = userDao.search(username);
+
+			out.print(flag);
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,7 +65,7 @@ public class UserServlet extends HttpServlet {
 			String password = request.getParameter("password");
 			User user = new User();
 			user.setUsername(username);
-			user.setPassword(CreateMD5.getMd5(password+username+"lzh"));
+			user.setPassword(CreateMD5.getMd5(password + username + "lzh"));
 
 			UserDao userDao = new UserDao();
 			boolean flag = userDao.add(user);
@@ -126,7 +126,7 @@ public class UserServlet extends HttpServlet {
 			String password = request.getParameter("password");
 			User user = new User();
 			user.setUsername(username);
-			user.setPassword(CreateMD5.getMd5(password+username+"lzh"));
+			user.setPassword(CreateMD5.getMd5(password + username + "lzh"));
 			String random = request.getParameter("random");
 
 			if (random.equals(session.getAttribute("rand"))) {
@@ -139,13 +139,13 @@ public class UserServlet extends HttpServlet {
 					// 把用户数据保存在session域对象中
 					session.setAttribute("username", username);
 					// 设置用户闲时消除登陆状态 N*60 N分钟
-					session.setMaxInactiveInterval(5 * 60);
-					if (request.getCookies() == null) {
-						Cookie cookie = new Cookie("userName", username);
-						cookie.setMaxAge(5 * 60);
-
-						response.addCookie(cookie);
-					}
+					// session.setMaxInactiveInterval(5 * 60);
+//					if (request.getCookies() == null) {
+//						Cookie cookie = new Cookie("userName", username);
+//						cookie.setMaxAge(5 * 60);
+//
+//						response.addCookie(cookie);
+//					}
 
 					out.print(flag);
 				} else {

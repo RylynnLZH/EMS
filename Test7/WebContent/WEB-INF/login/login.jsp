@@ -19,7 +19,7 @@ height: 300px;
 	line-height: 42px;
 	color:white;
 	padding: 0 15px;
-	border: 1px solid rgba(255, 255, 255, 0.38);
+	border: none;
 	background: rgba(45, 45, 45, 0.33);
 	border-radius: 6px;
 	

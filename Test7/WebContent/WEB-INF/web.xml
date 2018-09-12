@@ -18,6 +18,7 @@
 		<url-pattern>/project</url-pattern>
 		<url-pattern>/score</url-pattern>
 		<url-pattern>/deppro</url-pattern>
+		
 
 	</filter-mapping>
 
